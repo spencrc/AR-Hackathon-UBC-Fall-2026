@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "max_time_steps": 60,
+    "description": "Edge case: the station is a dead end (one-way edge in). After the first delivery the unit is trapped; the second pod becomes undeliverable by design. The router must degrade gracefully without crashing or wandering."
+  },
+  "nodes": [
+    {"id": 0, "name": "Storage-A", "type": "storage"},
+    {"id": 1, "name": "Aisle-1", "type": "travel"},
+    {"id": 2, "name": "Station-1", "type": "station"}
+  ],
+  "edges": [
+    {"from_node": 0, "to_node": 1, "weight": 2},
+    {"from_node": 1, "to_node": 2, "weight": 2, "bidirectional": false}
+  ],
+  "drive_units": [
+    {"id": 0, "start_node": 0}
+  ],
+  "pods": [
+    {"id": "P1", "source_node": 0, "destination_station": 2, "entry_time": 0},
+    {"id": "P2", "source_node": 0, "destination_station": 2, "entry_time": 5}
+  ]
+}

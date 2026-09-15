@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "max_time_steps": 100,
+    "description": "Edge case: two units must share one capacity-1 bridge with no detour. The blocked unit should wait for a slot rather than wander."
+  },
+  "nodes": [
+    {"id": 0, "name": "Storage-W", "type": "storage"},
+    {"id": 1, "name": "Storage-E", "type": "storage"},
+    {"id": 2, "name": "West-Bank", "type": "travel"},
+    {"id": 3, "name": "East-Bank", "type": "travel"},
+    {"id": 4, "name": "Station-1", "type": "station"}
+  ],
+  "edges": [
+    {"from_node": 0, "to_node": 2, "weight": 2},
+    {"from_node": 1, "to_node": 2, "weight": 2},
+    {"from_node": 2, "to_node": 3, "weight": 3, "capacity": 1},
+    {"from_node": 3, "to_node": 4, "weight": 2}
+  ],
+  "drive_units": [
+    {"id": 0, "start_node": 0},
+    {"id": 1, "start_node": 1}
+  ],
+  "pods": [
+    {"id": "P1", "source_node": 0, "destination_station": 4, "entry_time": 0},
+    {"id": "P2", "source_node": 1, "destination_station": 4, "entry_time": 0}
+  ]
+}

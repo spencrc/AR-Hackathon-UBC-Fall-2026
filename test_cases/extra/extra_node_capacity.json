@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "max_time_steps": 80,
+    "description": "Edge case: a capacity-1 gate node on the only route to the station. The second unit must wait for the node to clear instead of bouncing off it forever."
+  },
+  "nodes": [
+    {"id": 0, "name": "Storage-W", "type": "storage"},
+    {"id": 1, "name": "Storage-E", "type": "storage"},
+    {"id": 2, "name": "Gate", "type": "travel", "capacity": 1},
+    {"id": 3, "name": "Station-1", "type": "station"}
+  ],
+  "edges": [
+    {"from_node": 0, "to_node": 2, "weight": 2},
+    {"from_node": 1, "to_node": 2, "weight": 2},
+    {"from_node": 2, "to_node": 3, "weight": 2}
+  ],
+  "drive_units": [
+    {"id": 0, "start_node": 0},
+    {"id": 1, "start_node": 1}
+  ],
+  "pods": [
+    {"id": "P1", "source_node": 0, "destination_station": 3, "entry_time": 0},
+    {"id": "P2", "source_node": 1, "destination_station": 3, "entry_time": 0}
+  ]
+}

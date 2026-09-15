@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "max_time_steps": 60,
+    "description": "Edge case: a pod spawns AT its own destination station. The unit just needs to reach it; pickup and delivery resolve in place."
+  },
+  "nodes": [
+    {"id": 0, "name": "Storage-A", "type": "storage"},
+    {"id": 1, "name": "Station-1", "type": "station"},
+    {"id": 2, "name": "Aisle-1", "type": "travel"}
+  ],
+  "edges": [
+    {"from_node": 0, "to_node": 1, "weight": 3},
+    {"from_node": 0, "to_node": 2, "weight": 2},
+    {"from_node": 2, "to_node": 1, "weight": 2}
+  ],
+  "drive_units": [
+    {"id": 0, "start_node": 0}
+  ],
+  "pods": [
+    {"id": "P1", "source_node": 1, "destination_station": 1, "entry_time": 0},
+    {"id": "P2", "source_node": 0, "destination_station": 1, "entry_time": 5}
+  ]
+}
